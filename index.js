@@ -3,11 +3,24 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 
 let generatePassword = document.getElementById("generate-password")
 let passwordLength = 15
-let passwordsContainers = document.querySelectorAll(".passwords")
+let passwordOne = document.getElementById("password-one")
+let passwordTwo = document.getElementById("password-two")
 
-function generateRandomPassword() {
-    console.log("Generating password...")
+function choosingPassword() {
+    let password = ""
+
+    for (let i = 0; i < passwordLength; i++) {
+        let randomIndex = Math.floor(Math.random() * characters.length)
+        password += characters[randomIndex]
+    }
+
+    return password
 }
 
-addEventListener("click", generateRandomPassword)
+function generatePasswords() {   
+    passwordOne.value = choosingPassword()
+    passwordTwo.value = choosingPassword()
+}
+generatePassword.addEventListener("click", generatePasswords)
+
 

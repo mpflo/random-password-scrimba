@@ -13,6 +13,30 @@
         <h1>Generate a <strong>random password</strong></h1>
         <p>Never use an insecure password again.</p>
 
+        <div class="box-options">
+            <p class="tag">More options</p>
+            <!-- form com input: range -> Type password lenght: -->
+             <form>
+                <label for="pw-range">Password Range:</label>
+                <input type="range" name="pw-range" id="password-range" min="0" max="100" value="15">
+             </form>
+            <!-- characters used: [] numbers [] symbols-->
+
+            <form>
+                <p>Characters used:</p>
+                <div>
+                    <div>
+                        <label for="numbers">Numbers</label>
+                        <input type="checkbox" name="numbers" id="numbers">                        
+                    </div>
+                    <div>
+                        <label for="symbols">Symbols</label>
+                        <input type="checkbox" name="symbols" id="symbols">                        
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <button id="generate-password">Generate passwords</button>
 
         <div class="passwords">

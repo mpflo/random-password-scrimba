@@ -6,10 +6,30 @@ let symbolsOption = document.getElementById("symbols")
 let passwordRange = document.getElementById("password-range")
 let valueRange =  document.getElementById("value-range")
 let passwordLength = 0
+let inputsPassword = document.querySelectorAll('.input-password')
+
 
 passwordRange.addEventListener('input', function() {
     valueRange.textContent = passwordRange.value
 })
+
+inputsPassword.forEach(function(inputPassword) {
+    inputPassword.addEventListener('click', function() {
+        navigator.clipboard.writeText(inputPassword.value)
+
+        let tooltip = inputPassword.nextElementSibling
+
+        tooltip.classList.replace('hidden', 'block')
+
+        setTimeout(function() {
+            tooltip.classList.replace('block', 'hidden')
+        }, 2000)
+    })
+
+    
+})
+
+
 
 
 const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]

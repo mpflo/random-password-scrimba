@@ -4,45 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/karla.css">
     <link href="src/output.css" rel="stylesheet">
     <title>Random Password Generator</title>
 </head>
 
-<body>
-    <section>
-        <h1>Generate a <strong>random password</strong></h1>
-        <p>Never use an insecure password again.</p>
+<body class="bg-[#1C1C1C] h-screen flex items-center justify-center">
+    <section class="bg-[#1F2937] w-[90%] h-[90%] md:w-137.5 md:h-137.5 font-karla flex flex-col justify-center px-8 lg:px-10">
+        <h1 class="text-white font-extrabold text-[40px]/[40px] mb-2">Generate a<br class="hidden lg:block"> <strong class="text-[#4ADF86]">random password</strong></h1>
+        <p class="text-gray-100 text-[20px]">Never use an insecure password again.</p>
 
-        <div class="box-options">
-            <p class="tag">More options</p>
-             <form>
-                <label for="pw-range">Password Range:</label>
-                <input type="range" name="pw-range" id="password-range" min="0" max="100" value="15">
-                <span id="value-range">15</span>
-             </form>
-
-            <form>
-                <p>Characters used:</p>
-                <div>
-                    <div>
-                        <label for="numbers">Numbers</label>
-                        <input type="checkbox" name="numbers" id="numbers" checked>                        
+        <div class="box-options mt-3 mb-4">
+            <p class="tag text-[#10B981] text-[12px] bg-[#1F2937] px-1 inline-block translate-y-2.5 ms-2">More options</p>
+             <div class="border border-[#2F3E53] p-3 grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-3 rounded-md">
+                 <form class="flex flex-col">
+                    <label class="text-white text-[13px] font-semibold mb-2" for="pw-range">Password Range:</label>
+                    <div class="flex items-center gap-x-1.5">
+                        <input class="w-full" type="range" name="pw-range" id="password-range" min="0" max="100" value="15">
+                        <span id="value-range" class="text-gray-100 font-light">15</span>
                     </div>
+                 </form>
+                 
+                <form>
+                    <p class="text-white text-[13px] font-semibold mb-2">Characters used:</p>
                     <div>
-                        <label for="symbols">Symbols</label>
-                        <input type="checkbox" name="symbols" id="symbols" checked>                        
+                        <div>
+                            <label class="text-gray-100 font-light" for="numbers">Numbers</label>
+                            <input type="checkbox" name="numbers" id="numbers" checked>
+                        </div>
+                        <div>
+                            <label class="text-gray-100 font-light" for="symbols">Symbols</label>
+                            <input type="checkbox" name="symbols" id="symbols" checked>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+             </div>
         </div>
 
-        <button id="generate-password">Generate passwords</button>
+        <button id="generate-password" class="bg-[#10B981] hover:bg-[#0e8f64] text-white py-2.25 px-4.25 rounded-md cursor-pointer w-full lg:w-fit">Generate passwords</button>
 
-        <div class="passwords">
-            <input type="text" readonly id="password-one" class="input-password">
-            <span class="tooltip hidden">Password copied!</span>
-            <input type="text" readonly id="password-two" class="input-password">
-            <span class="tooltip hidden">Password copied!</span>
+        <hr class="border border-[#2F3E53] my-8">
+
+        <div class="passwords grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div class="h-13">
+                <input class="input-password bg-[#273549] block w-full rounded-md h-9.75 text-[#55F991] font-semibold px-3" type="text" readonly id="password-one">
+                <span class="tooltip hidden text-[12px] text-[#10B981]">Password copied!</span>
+            </div>
+            <div class="h-13">
+                <input class="input-password bg-[#273549] block w-full rounded-md h-9.75 text-[#55F991] font-semibold px-3" type="text" readonly id="password-two">
+                <span class="tooltip hidden text-[12px] text-[#10B981]">Password copied!</span>
+            </div>
         </div>
     </section>
 
